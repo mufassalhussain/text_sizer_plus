@@ -2,19 +2,8 @@
 Flutter widget that automatically resizes text to fit perfectly within its bounds latest version. A fork of https://github.com/simc/auto_size_text
 
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/leisim/auto_size_text/CI) [![codecov](https://codecov.io/gh/leisim/auto_size_text/branch/master/graph/badge.svg)](https://codecov.io/gh/leisim/auto_size_text) [![Version](https://img.shields.io/pub/v/auto_size_text.svg)](https://pub.dev/packages/auto_size_text) ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-
-Flutter widget that automatically resizes text to fit perfectly within its bounds.
 
 **Show some ❤️ and star the repo to support the project**
-
-### Resources:
-- [Documentation](https://pub.dev/documentation/auto_size_text/latest/auto_size_text/AutoSizeText-class.html)
-- [Pub Package](https://pub.dev/packages/auto_size_text)
-- [GitHub Repository](https://github.com/leisim/auto_size_text)
-- [Online Demo](https://appetize.io/app/w352kxbnz51c6pfvxrdvxcb3xw?device=nexus5&scale=100&orientation=landscape&osVersion=8.1&deviceColor=black)
-
-Also check out the blazing fast key-value store [hive](https://github.com/leisim/hive).
 
 
 ![](https://raw.githubusercontent.com/leisim/auto_size_text/master/.github/art/maxlines.gif)
