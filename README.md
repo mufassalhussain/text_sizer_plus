@@ -1,12 +1,7 @@
 # TextSizerPlus
 Flutter widget that automatically resizes text to fit perfectly within its bounds latest version. A fork of https://github.com/simc/auto_size_text
 
-
-
 **Show some ❤️ and star the repo to support the project**
-
-
-![](https://raw.githubusercontent.com/leisim/auto_size_text/master/.github/art/maxlines.gif)
 
 ## Contents
 
@@ -27,23 +22,23 @@ Flutter widget that automatically resizes text to fit perfectly within its bound
 
 ## Usage
 
-`AutoSizeText` behaves exactly like a `Text`. The only difference is that it resizes text to fit within its bounds.
+`TextSizerPlus` behaves exactly like a `Text`. The only difference is that it resizes text to fit within its bounds.
 
 ```dart
-AutoSizeText(
+TextSizerPlus(
   'The text to display',
   style: TextStyle(fontSize: 20),
   maxLines: 2,
 )
 ```
-**Note:** `AutoSizeText` needs bounded constraints to resize the text. More info [here](#troubleshooting).
+**Note:** `TextSizerPlus` needs bounded constraints to resize the text. More info [here](#troubleshooting).
 
 ### maxLines
 
-The `maxLines` parameter works like you are used to with the `Text` widget. If there is no `maxLines` parameter specified, the `AutoSizeText` only fits the text according to the available width and height.
+The `maxLines` parameter works like you are used to with the `Text` widget. If there is no `maxLines` parameter specified, the `TextSizerPlus` only fits the text according to the available width and height.
 
 ```dart
-AutoSizeText(
+TextSizerPlus(
   'A really long String',
   style: TextStyle(fontSize: 30),
   maxLines: 2,
@@ -55,14 +50,14 @@ AutoSizeText(
 
 ### minFontSize & maxFontSize
 
-The `AutoSizeText` starts with `TextStyle.fontSize`. It measures the resulting text and rescales it to fit within its bonds. You can however set the allowed range of the resulting font size.
+The `TextSizerPlus` starts with `TextStyle.fontSize`. It measures the resulting text and rescales it to fit within its bonds. You can however set the allowed range of the resulting font size.
 
 With `minFontSize` you can specify the smallest possible font size. If the text still doesn't fit, it will be handled according to `overflow`. The default `minFontSize` is `12`.
 
 `maxFontSize` sets the largest possible font size. This is useful if the `TextStyle` inherits the font size and you want to constrain it.
 
 ```dart
-AutoSizeText(
+TextSizerPlus(
   'A really long String',
   style: TextStyle(fontSize: 30),
   minFontSize: 18,
@@ -76,23 +71,23 @@ AutoSizeText(
 
 ### group
 
-You can synchronize the font size of multiple `AutoSizeText`. They will fit their boundaries and all `AutoSizeText` in the same group have the same size. That means they adjust their font size to the group member with the smallest effective font size.
+You can synchronize the font size of multiple `TextSizerPlus`. They will fit their boundaries and all `TextSizerPlus` in the same group have the same size. That means they adjust their font size to the group member with the smallest effective font size.
 
-**Note:** If a `AutoSizeText` cannot adjust because of constraints like `minFontSize`, it won't have the same size as the other group members.
+**Note:** If a `TextSizerPlus` cannot adjust because of constraints like `minFontSize`, it won't have the same size as the other group members.
 
-An instance of `AutoSizeGroup` represents one group. Pass this instance to all `AutoSizeText` you want to add to that group. You don't have to care about disposing the group if it is no longer needed.
+An instance of `TextSizerGroup` represents one group. Pass this instance to all `TextSizerPlus` you want to add to that group. You don't have to care about disposing the group if it is no longer needed.
 
-**Important:** Please don't pass a new instance of `AutoSizeGroup` every build. In other words, save the `AutoSizeGroup` instance in a `StatefulWidget`, or use `AutoSizeGroupBuilder`.
+**Important:** Please don't pass a new instance of `TextSizerGroup` every build. In other words, save the `TextSizerGroup` instance in a `StatefulWidget`, or use `TextSizerGroupBuilder`.
 
 ```dart
-var myGroup = AutoSizeGroup();
+var myGroup = TextSizerGroup();
 
-AutoSizeText(
+TextSizerPlus(
   'Text 1',
   group: myGroup,
 );
 
-AutoSizeText(
+TextSizerPlus(
   'Text 2',
   group: myGroup,
 );
@@ -103,11 +98,11 @@ AutoSizeText(
 
 ### stepGranularity
 
-The `AutoSizeText` will try each font size, starting with `TextStyle.fontSize` until the text fits within its bounds.  
+The `TextSizerPlus` will try each font size, starting with `TextStyle.fontSize` until the text fits within its bounds.  
 `stepGranularity` specifies how much the font size is decreased each step. Usually, this value should not be below `1` for best performance.
 
 ```dart
-AutoSizeText(
+TextSizerPlus(
   'A really long String',
   style: TextStyle(fontSize: 40),
   minFontSize: 10,
@@ -126,7 +121,7 @@ If you want to allow only specific font sizes, you can set them with `presetFont
 If `presetFontSizes` is set, `minFontSize`, `maxFontSize` and `stepGranularity` will be ignored.
 
 ```dart
-AutoSizeText(
+TextSizerPlus(
   'A really long String',
   presetFontSizes: [40, 20, 14],
   maxLines: 4,
@@ -141,7 +136,7 @@ AutoSizeText(
 If the text is overflowing and does not fit its bounds, this widget is displayed instead. This can be useful to prevent text being too small to read.
 
 ```dart
-AutoSizeText(
+TextSizerPlus(
   'A String tool long to display without extreme scaling or overflow.',
   maxLines: 1,
   overflowReplacement: Text('Sorry String too long'),
@@ -153,15 +148,15 @@ AutoSizeText(
 
 ## Rich Text
 
-You can also use Rich Text (like different text styles or links) with `AutoSizeText`. Just use the `AutoSizeText.rich()` constructor
+You can also use Rich Text (like different text styles or links) with `TextSizerPlus`. Just use the `TextSizerPlus.rich()` constructor
 (which works exactly like the `Text.rich()` constructor).
 
 The only thing you have to be aware of is how the font size calculation works: The `fontSize` in the `style`
-parameter of `AutoSizeText` (or the inherited `fontSize` if none is set) is used as reference.  
+parameter of `TextSizerPlus` (or the inherited `fontSize` if none is set) is used as reference.  
 
 For example:
 ```dart
-AutoSizeText.rich(
+TextSizerPlus.rich(
   TextSpan(text: 'A really long String'),
   style: TextStyle(fontSize: 20),
   minFontSize: 5,
@@ -184,7 +179,7 @@ But it does not mean that all `TextSpan`s have at least font size `5`.
 | `maxFontSize` | The **maximum** text size constraint to be used when auto-sizing text. <br>*Is being ignored if `presetFontSizes` is set.* |
 | `stepGranularity` | The step size in which the font size is being adapted to constraints. |
 | `presetFontSizes` | Predefines all the possible font sizes.<br> **Important:** `presetFontSizes` have to be in descending order.  |
-| `group` | Synchronizes the size of multiple `AutoSizeText`s |
+| `group` | Synchronizes the size of multiple `TextSizerPlus`s |
 | `textAlign`* | How the text should be aligned horizontally. |
 | `textDirection`* | The directionality of the text. This decides how `textAlign` values like `TextAlign.start` and `TextAlign.end` are interpreted. |
 | `locale`* |  Used to select a font when the same Unicode character can be rendered differently, depending on the locale. |
@@ -201,7 +196,7 @@ Parameters marked with \* behave exactly the same as in `Text`
 
 ## Performance
 
-`AutoSizeText` is really fast. In fact, you can replace all your `Text` widgets with `AutoSizeText`.<br>
+`TextSizerPlus` is really fast. In fact, you can replace all your `Text` widgets with `TextSizerPlus`.<br>
 Nevertheless you should not use an unreasonable high `fontSize` in your `TextStyle`. E.g. don't set the `fontSize` to `1000` if you know, that the text will never be larger than `30`.
 
 If your font size has a very large range, consider increasing `stepGranularity`.
@@ -211,13 +206,13 @@ If your font size has a very large range, consider increasing `stepGranularity`.
 
 ### Missing bounds
 
-If `AutoSizeText` overflows or does not resize the text, you should check if it has constrained width and height.
+If `TextSizerPlus` overflows or does not resize the text, you should check if it has constrained width and height.
 
 **Wrong** code:
 ```dart
 Row(
   children: <Widget>[
-    AutoSizeText(
+    TextSizerPlus(
       'Here is a very long text, which should be resized',
       maxLines: 1,
     ),
@@ -225,14 +220,14 @@ Row(
 )
 ```
 Because `Row` and other widgets like `Container`, `Column` or `ListView` do not constrain their children, the text will overflow.  
-You can fix this by constraining the `AutoSizeText`. Wrap it with `Expanded` in case of `Row` and `Column` or use a `SizedBox` or another widget with fixed width (and height).
+You can fix this by constraining the `TextSizerPlus`. Wrap it with `Expanded` in case of `Row` and `Column` or use a `SizedBox` or another widget with fixed width (and height).
 
 **Correct** code:
 ```dart
 Row(
   children: <Widget>[
-    Expanded( // Constrains AutoSizeText to the width of the Row
-      child: AutoSizeText(
+    Expanded( // Constrains TextSizerPlus to the width of the Row
+      child: TextSizerPlus(
         'Here is a very long text, which should be resized',
         maxLines: 1,
       )
@@ -247,24 +242,24 @@ Further explanation can be found [here](https://stackoverflow.com/a/53908204). I
 
 ### MinFontSize too large
 
-`AutoSizeText` does not resize text below the `minFontSize` which defaults to 12. This can happen very easily if you use `AutoSizeText.rich()`:
+`TextSizerPlus` does not resize text below the `minFontSize` which defaults to 12. This can happen very easily if you use `TextSizerPlus.rich()`:
 
 **Wrong** code:
 ```dart
-AutoSizeText.rich(
+TextSizerPlus.rich(
   TextSpan(
     text: 'Text that will not be resized correctly in some cases',
     style: TextStyle(fontSize: 200),
   ),
 )
 ```
-This rich text does not have a style so it will fall back to the default style (probably `fontSize = 14`). It has an implicit `minFontSize` of 12 that means it can be resized to 86% of its original size at the most (14 -> 12). Just set `minFontSize = 0` or add `style: TextStyle(fontSize: 200)` to the `AutoSizeText`.
+This rich text does not have a style so it will fall back to the default style (probably `fontSize = 14`). It has an implicit `minFontSize` of 12 that means it can be resized to 86% of its original size at the most (14 -> 12). Just set `minFontSize = 0` or add `style: TextStyle(fontSize: 200)` to the `TextSizerPlus`.
 
 **Note:** If you use the first option, you should also consider lowering `stepGranularity`. Otherwise the steps of resizing will be very large.
 
 **Correct** code:
 ```dart
-AutoSizeText.rich(
+TextSizerPlus.rich(
   TextSpan(
     text: 'Text that will be resized correctly',
     style: TextStyle(fontSize: 200),
