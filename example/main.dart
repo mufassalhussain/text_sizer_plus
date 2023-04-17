@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 
 void main() {
   runApp(App());
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
           child: SizedBox(
             width: 200,
             height: 140,
-            child: AutoSizeText(
+            child: TextSizerPlus(
               'This string will be automatically resized to fit in two lines.',
               style: TextStyle(fontSize: 30),
               maxLines: 2,

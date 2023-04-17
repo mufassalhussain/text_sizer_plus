@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'utils.dart';
 
 void main() {
   testWidgets('Only Text', (tester) async {
     await pump(
       tester: tester,
-      widget: AutoSizeText('Some Text'),
+      widget: TextSizerPlus('Some Text'),
     );
   });
 
   testWidgets('Only text (rich)', (tester) async {
     await pump(
       tester: tester,
-      widget: AutoSizeText.rich(TextSpan(text: 'Some Text')),
+      widget: TextSizerPlus.rich(TextSpan(text: 'Some Text')),
     );
   });
 
@@ -22,7 +22,7 @@ void main() {
     await pumpAndExpectFontSize(
       tester: tester,
       expectedFontSize: 34,
-      widget: AutoSizeText(
+      widget: TextSizerPlus(
         'Some Text',
         style: TextStyle(fontSize: 34),
       ),
@@ -33,7 +33,7 @@ void main() {
     await pumpAndExpectFontSize(
       tester: tester,
       expectedFontSize: 35,
-      widget: AutoSizeText.rich(
+      widget: TextSizerPlus.rich(
         TextSpan(text: 'Some Text'),
         style: TextStyle(fontSize: 35),
       ),
@@ -53,7 +53,7 @@ void main() {
         softWrap: false,
         overflow: TextOverflow.ellipsis,
         maxLines: 17,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'AutoSizeText Test',
         ),
       ),
@@ -72,7 +72,7 @@ void main() {
     await pumpAndExpectFontSize(
       tester: tester,
       expectedFontSize: 60,
-      widget: AutoSizeText(
+      widget: TextSizerPlus(
         'Some Text',
         style: TextStyle(fontSize: 15),
         textScaleFactor: 4,
@@ -84,7 +84,7 @@ void main() {
     final textKey = GlobalKey();
     final text = await pumpAndGetText(
       tester: tester,
-      widget: AutoSizeText(
+      widget: TextSizerPlus(
         'A text with key',
         textKey: textKey,
       ),

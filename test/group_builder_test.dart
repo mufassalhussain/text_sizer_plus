@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 
 import 'utils.dart';
 
 Widget testWidget({required double width1, required double width2}) {
   return MaterialApp(
-    home: AutoSizeGroupBuilder(
+    home: TextSizerGroupBuilder(
       builder: (_, group) => Column(
         children: <Widget>[
           SizedBox(
             width: width1,
             height: 100,
-            child: AutoSizeText(
+            child: TextSizerPlus(
               'XXXXXX',
               style: TextStyle(fontSize: 60),
               minFontSize: 1,
@@ -23,7 +23,7 @@ Widget testWidget({required double width1, required double width2}) {
           SizedBox(
             width: width2,
             height: 100.0,
-            child: AutoSizeText(
+            child: TextSizerPlus(
               'XXXXXX',
               style: TextStyle(fontSize: 60),
               minFontSize: 1,

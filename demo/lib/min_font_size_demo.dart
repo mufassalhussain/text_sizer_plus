@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'animated_input.dart';
 import 'text_card.dart';
 import 'utils.dart';
@@ -40,14 +40,14 @@ class MinFontSizeDemo extends StatelessWidget {
               child: TextCard(
                 title: 'AutoSizeText',
                 child: !richText
-                    ? AutoSizeText(
+                    ? TextSizerPlus(
                         input,
                         style: TextStyle(fontSize: 30),
                         minFontSize: 20,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 4,
                       )
-                    : AutoSizeText.rich(
+                    : TextSizerPlus.rich(
                         spanFromString(input),
                         style: TextStyle(fontSize: 30),
                         minFontSize: 20,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 
 import 'animated_input.dart';
 import 'text_card.dart';
@@ -41,7 +41,7 @@ class StepGranularityDemo extends StatelessWidget {
               child: TextCard(
                 title: 'AutoSizeText',
                 child: !richText
-                    ? AutoSizeText(
+                    ? TextSizerPlus(
                         input,
                         style: TextStyle(fontSize: 40),
                         stepGranularity: 10,
@@ -49,7 +49,7 @@ class StepGranularityDemo extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 4,
                       )
-                    : AutoSizeText.rich(
+                    : TextSizerPlus.rich(
                         spanFromString(input),
                         style: TextStyle(fontSize: 40),
                         stepGranularity: 10,

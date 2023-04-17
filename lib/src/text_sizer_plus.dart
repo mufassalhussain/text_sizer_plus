@@ -1,4 +1,4 @@
-part of auto_size_text;
+part of text_sizer_plus;
 
 /// Flutter widget that automatically resizes text to fit perfectly within its
 /// bounds.
@@ -6,12 +6,12 @@ part of auto_size_text;
 /// All size constraints as well as maxLines are taken into account. If the text
 /// overflows anyway, you should check if the parent widget actually constraints
 /// the size of this widget.
-class AutoSizeText extends StatefulWidget {
-  /// Creates a [AutoSizeText] widget.
+class TextSizerPlus extends StatefulWidget {
+  /// Creates a [TextSizerPlus] widget.
   ///
   /// If the [style] argument is null, the text will use the style from the
   /// closest enclosing [DefaultTextStyle].
-  const AutoSizeText(
+  const TextSizerPlus(
     String this.data, {
     Key? key,
     this.textKey,
@@ -35,8 +35,8 @@ class AutoSizeText extends StatefulWidget {
   })  : textSpan = null,
         super(key: key);
 
-  /// Creates a [AutoSizeText] widget with a [TextSpan].
-  const AutoSizeText.rich(
+  /// Creates a [TextSizerPlus] widget with a [TextSpan].
+  const TextSizerPlus.rich(
     TextSpan this.textSpan, {
     Key? key,
     this.textKey,
@@ -123,12 +123,12 @@ class AutoSizeText extends StatefulWidget {
   /// **Important:** PresetFontSizes have to be in descending order.
   final List<double>? presetFontSizes;
 
-  /// Synchronizes the size of multiple [AutoSizeText]s.
+  /// Synchronizes the size of multiple [TextSizerPlus]s.
   ///
-  /// If you want multiple [AutoSizeText]s to have the same text size, give all
-  /// of them the same [AutoSizeGroup] instance. All of them will have the
-  /// size of the smallest [AutoSizeText]
-  final AutoSizeGroup? group;
+  /// If you want multiple [TextSizerPlus]s to have the same text size, give all
+  /// of them the same [TextSizerGroup] instance. All of them will have the
+  /// size of the smallest [TextSizerPlus]
+  final TextSizerGroup? group;
 
   /// How the text should be aligned horizontally.
   final TextAlign? textAlign;
@@ -216,10 +216,10 @@ class AutoSizeText extends StatefulWidget {
   final String? semanticsLabel;
 
   @override
-  _AutoSizeTextState createState() => _AutoSizeTextState();
+  _TextSizerPlusState createState() => _TextSizerPlusState();
 }
 
-class _AutoSizeTextState extends State<AutoSizeText> {
+class _TextSizerPlusState extends State<TextSizerPlus> {
   @override
   void initState() {
     super.initState();
@@ -228,7 +228,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
   }
 
   @override
-  void didUpdateWidget(AutoSizeText oldWidget) {
+  void didUpdateWidget(TextSizerPlus oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.group != widget.group) {
@@ -247,7 +247,7 @@ class _AutoSizeTextState extends State<AutoSizeText> {
         style = defaultTextStyle.style.merge(widget.style);
       }
       if (style!.fontSize == null) {
-        style = style.copyWith(fontSize: AutoSizeText._defaultFontSize);
+        style = style.copyWith(fontSize: TextSizerPlus._defaultFontSize);
       }
 
       final maxLines = widget.maxLines ?? defaultTextStyle.maxLines;

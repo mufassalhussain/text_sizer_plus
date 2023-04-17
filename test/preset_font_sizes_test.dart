@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'utils.dart';
 
 void main() {
@@ -11,7 +11,7 @@ void main() {
       widget: SizedBox(
         width: 500,
         height: 100,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'XXXXX',
           presetFontSizes: [100, 50, 5],
         ),
@@ -24,7 +24,7 @@ void main() {
       widget: SizedBox(
         width: 300,
         height: 100,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'XXXXX',
           presetFontSizes: [100, 50, 5],
         ),
@@ -37,7 +37,7 @@ void main() {
       widget: SizedBox(
         width: 20,
         height: 100,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'XXXXX',
           presetFontSizes: [100, 50, 5],
         ),
