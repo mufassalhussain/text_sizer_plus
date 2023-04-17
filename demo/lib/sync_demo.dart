@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'text_card.dart';
 import 'utils.dart';
 
@@ -15,7 +15,7 @@ class SyncDemo extends StatefulWidget {
 class _SyncDemoState extends State<SyncDemo>
     with SingleTickerProviderStateMixin {
   double _scale = 0;
-  var group = AutoSizeGroup();
+  var group = TextSizerGroup();
   late AnimationController _controller;
 
   @override
@@ -51,7 +51,7 @@ class _SyncDemoState extends State<SyncDemo>
 
   @override
   Widget build(BuildContext context) {
-    final group = AutoSizeGroup();
+    final group = TextSizerGroup();
     const text =
         'These AutoSizeTexts fit the available space and synchronize their '
         'text sizes.';
@@ -62,14 +62,14 @@ class _SyncDemoState extends State<SyncDemo>
             title: 'AutoSizeText 1',
             child: Visibility(
               visible: !widget.richText,
-              child: AutoSizeText(
+              child: TextSizerPlus(
                 text,
                 group: group,
                 style: TextStyle(fontSize: 40),
                 stepGranularity: 0.1,
                 maxLines: 3,
               ),
-              replacement: AutoSizeText.rich(
+              replacement: TextSizerPlus.rich(
                 spanFromString(text),
                 group: group,
                 style: TextStyle(fontSize: 40),
@@ -93,14 +93,14 @@ class _SyncDemoState extends State<SyncDemo>
                   title: 'AutoSizeText 2',
                   child: Visibility(
                     visible: !widget.richText,
-                    child: AutoSizeText(
+                    child: TextSizerPlus(
                       text,
                       group: group,
                       style: TextStyle(fontSize: 40),
                       stepGranularity: 0.1,
                       maxLines: 3,
                     ),
-                    replacement: AutoSizeText.rich(
+                    replacement: TextSizerPlus.rich(
                       spanFromString(text),
                       group: group,
                       style: TextStyle(fontSize: 40),

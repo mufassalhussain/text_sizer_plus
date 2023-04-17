@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -40,17 +37,15 @@ bool doesTextFit(
 
 bool prepared = false;
 
-Future prepareTests(WidgetTester tester) async {
+Future<void> prepareTests(WidgetTester tester) async {
   if (prepared) {
     return;
   }
 
-  tester.binding.addTime(Duration(seconds: 10));
+  await tester.pump(Duration(seconds: 10));
   prepared = true;
-  final fontData = File('test/assets/Roboto-Regular.ttf')
-      .readAsBytes()
-      .then((bytes) => ByteData.view(Uint8List.fromList(bytes).buffer));
 
+  final fontData = rootBundle.load('test/assets/Roboto-Regular.ttf');
   final fontLoader = FontLoader('Roboto')..addFont(fontData);
   await fontLoader.load();
 }

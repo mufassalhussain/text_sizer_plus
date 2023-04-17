@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'utils.dart';
 
 class GroupTest extends StatefulWidget {
@@ -9,7 +9,7 @@ class GroupTest extends StatefulWidget {
 }
 
 class GroupTestState extends State<GroupTest> {
-  var group = AutoSizeGroup();
+  var group = TextSizerGroup();
   var width1 = 300.0;
   var width2 = 300.0;
 
@@ -21,7 +21,7 @@ class GroupTestState extends State<GroupTest> {
           SizedBox(
             width: width1,
             height: 100,
-            child: AutoSizeText(
+            child: TextSizerPlus(
               'XXXXXX',
               style: TextStyle(fontSize: 60),
               minFontSize: 1,
@@ -32,7 +32,7 @@ class GroupTestState extends State<GroupTest> {
           SizedBox(
             width: width2,
             height: 100.0,
-            child: AutoSizeText(
+            child: TextSizerPlus(
               'XXXXXX',
               style: TextStyle(fontSize: 60),
               minFontSize: 1,

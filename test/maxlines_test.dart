@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'utils.dart';
 
 void main() {
   testWidgets('Respects maxlines', (tester) async {
     await pump(
       tester: tester,
-      widget: AutoSizeText(
+      widget: TextSizerPlus(
         'XXXXX',
         style: TextStyle(fontSize: 27),
         maxLines: 1,
@@ -20,7 +20,7 @@ void main() {
       tester: tester,
       widget: SizedBox(
         width: 75,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'XXX XXX',
           style: TextStyle(fontSize: 25),
           maxLines: 2,

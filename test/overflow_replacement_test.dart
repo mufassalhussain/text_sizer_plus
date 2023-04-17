@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:text_sizer_plus/auto_size_text.dart';
+import 'package:text_sizer_plus/text_sizer_plus.dart';
 import 'utils.dart';
 
 void main() {
@@ -10,7 +10,7 @@ void main() {
       widget: SizedBox(
         width: 100,
         height: 20,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'XXXXXX',
           overflowReplacement: Text('OVERFLOW!'),
           minFontSize: 20,
@@ -27,7 +27,7 @@ void main() {
       widget: SizedBox(
         width: 100,
         height: 20,
-        child: AutoSizeText(
+        child: TextSizerPlus(
           'XXXXX',
           style: TextStyle(fontSize: 20),
           overflowReplacement: Text('OVERFLOW!'),
