@@ -1,6 +1,6 @@
 name: text_sizer_plus
 description: Flutter widget that automatically resizes text to fit perfectly within its bounds.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/mufassalhussain/text_sizer_plus
 
 environment:
