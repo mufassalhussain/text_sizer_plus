@@ -1,5 +1,5 @@
 # TextSizerPlus
-Flutter widget that automatically resizes text to fit perfectly within its bounds latest version. A fork of https://github.com/simc/auto_size_text
+Flutter widget that automatically resizes text to fit perfectly within its bounds latest version.
 
 **Show some ❤️ and star the repo to support the project**
 
