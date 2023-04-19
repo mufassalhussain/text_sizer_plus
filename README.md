@@ -3,6 +3,8 @@ Flutter widget that automatically resizes text to fit perfectly within its bound
 
 **Show some ❤️ and star the repo to support the project**
 
+- [Original Package](https://github.com/simc/auto_size_text)
+Warning - This package might be removed if the changes gets approved on the original package.
 ## Contents
 
 - [Usage](#usage)
@@ -271,7 +273,7 @@ TextSizerPlus.rich(
 
 ## MIT License
 ```
-Copyright (c) 2023 Mufassal Hussain
+Copyright (c) 2018 Simon Leier
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
